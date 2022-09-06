@@ -3,6 +3,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import {getPosts} from '../services/index'
 import PostCard from '../components/PostCard'
+import PostWidget from '../components/PostWidget'
+import Categories from '../components/Categories'
 
 const Home = ({posts}) => {
   return (
@@ -20,9 +22,9 @@ const Home = ({posts}) => {
           }
         </div>
         <div className='lg:col-span-4 col-span-1'>
-          <div className='lg:sticky relative top-8'>
-          post widget
-          category
+          <div className='lg:sticky relative top-8 text-white'>
+          <PostWidget/>
+          <Categories/>
 
           </div>
         </div>

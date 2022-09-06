@@ -3,7 +3,6 @@ import Link from 'next/link'
 import React from 'react'
 
 const PostCard = ({post}) => {
-    console.log(post)
   return (
     <div className='bg-white rounded-lg p-0 lg:p-8 pb-12 mb-8'>
         <div className='relative overflow-hidden mb-4'>
