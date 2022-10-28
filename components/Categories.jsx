@@ -14,7 +14,6 @@ const Categories = () => {
     useEffect(()=>{
         getData()
     } , [])
-    console.log(categories)
   return (
     <div className='bg-white p-8 rounded-lg mt-8'>
         <h1 className='text-black border-b mb-4 pb-2 text-xl font-bold'>
@@ -22,7 +21,7 @@ const Categories = () => {
         </h1>
         {
             categories && categories.map((item , index) => (
-                <div className='text-black pb-4 mb-3 text-sm border-b '>
+                <div key={index} className='text-black pb-4 mb-3 text-sm border-b '>
                     <Link href={`/post/${item.slug}`}>{item.name}</Link>
                 </div>
             ))
