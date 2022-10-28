@@ -173,4 +173,33 @@ export const getComments = async (slug) => {
     `
     const result = await graphQLClient.request(query , {slug})
     return result.comments
+};
+
+
+export const getFeaturedPosts = async () => {
+    const graphQLClient = new GraphQLClient(
+        'https://api-us-west-2.hygraph.com/v2/cl7kmz2j20lz001up69oc13xl/master'
+    );
+
+    const query = gql`
+        query GetFeaturedPosts() {
+            posts(where : {featuredPost : true}) {
+                author {
+                    name
+                    photo {
+                        url
+                    }
+                }
+                featuredImage {
+                    url
+                }
+                slug
+                createdAt
+                title
+            }
+    }
+    `
+    const result = await graphQLClient.request(query)
+    return result.posts
+
 }
