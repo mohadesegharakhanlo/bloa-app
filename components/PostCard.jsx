@@ -7,7 +7,8 @@ const PostCard = ({post}) => {
     <div className='bg-white rounded-lg p-0 lg:p-8 pb-12 mb-8'>
         <div className='relative overflow-hidden mb-4'>
             <img src={post.featuredImage.url}
-                className='h-80 w-full rounded-md'
+                className=' w-full h-[35rem] rounded-md'
+                
             />
         </div>
         <h1 className='text-center text-3xl font-bold text-black transition duration-700 hover:text-blue-400 mb-8 '>
@@ -32,7 +33,7 @@ const PostCard = ({post}) => {
         <p className='text-center px-4 text-md mb-8'>{post.excerpt}</p>
         <div className='text-center'>
             <Link href={`/post/${post.slug}`}>
-                <span className='bg-blue-500 rounded-full px-4 py-2 text-white cursor-pointer transition transform inline-block duration-500 hover:-translate-y-1'>continue reading</span>
+                <span className='bg-cyan-700 rounded-full px-8 py-2  text-white cursor-pointer transition transform inline-block duration-500 hover:-translate-y-1'>...بیشتر</span>
             </Link>
         </div>
     </div>

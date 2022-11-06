@@ -15,14 +15,14 @@ export const Header = () => {
     } , [])
   return (
     <div className="container mb-8 mx-auto w-full">
-        <div className="w-full border-b border-blue-400 inline-block py-8">
+        <div className="w-full border-b border-cyan-700 inline-block py-8">
         <div className="md:float-left block">
-            <Link href="/"><span className="cursor-pointer font-bold text-5xl text-white">graphcms</span></Link>
+            <Link href="/"><span className="cursor-pointer font-bold text-5xl text-cyan-800">my books</span></Link>
         </div>
         <div className=' md:float-lest md:content '>
           {
               categories && categories.map((item , index) => (
-                <span key={index} className='text-white float-right mt-3 text-2xl mr-4 ml-4 ' >{item.name}</span>
+                <span key={index} className='text-white float-right mt-3 text-xl mr-4 ml-4 font-semibold ' >{item.name}</span>
               ))
           }
         </div>

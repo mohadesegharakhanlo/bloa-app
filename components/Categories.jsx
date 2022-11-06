@@ -15,9 +15,9 @@ const Categories = () => {
         getData()
     } , [])
   return (
-    <div className='bg-white p-8 rounded-lg mt-8'>
+    <div className='bg-white p-8 rounded-lg mt-8' dir='rtl'>
         <h1 className='text-black border-b mb-4 pb-2 text-xl font-bold'>
-            categories
+            دسته بندی ها
         </h1>
         {
             categories && categories.map((item , index) => (

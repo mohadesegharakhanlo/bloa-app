@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import {getPosts} from '../services/index'
 import PostCard from '../components/PostCard'
 import PostWidget from '../components/PostWidget'

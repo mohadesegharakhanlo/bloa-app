@@ -20,12 +20,12 @@ const PostWidget = ({slug , categories}) => {
     } , [slug])
   return (
     <div className='bg-white p-8 rounded-lg '>
-    <h1 className='text-black border-b mb-4 pb-2 text-xl font-bold'>
-        {slug ? 'Related Posts' : 'Recent Posts'}
+    <h1 className='text-black border-b mb-4 pb-2 text-xl font-bold' dir='rtl'>
+        {slug ? 'کتاب های مرتبط' : 'معرفی های اخیر'}
     </h1>
     {
         relatedPost && relatedPost.map((item , index) => (
-            <div key={index} className='flex items-center justify-start w-full mb-6 gap-3'>
+            <div key={index} className='flex items-center justify-start w-full mb-6 gap-3' dir='rtl'>
                 <div>
                     <img 
                         src={item.featuredImage.url}
@@ -39,6 +39,7 @@ const PostWidget = ({slug , categories}) => {
                     <Link className='text-md' href={`/post/${item.slug}`}>{item.title}</Link>
                     <p className='mt-1 text-xs'>{moment(item.createdAt).format('MMM DD, YYYY')}</p>
                 </div>
+                
             </div>
         ))
     }
