@@ -3,16 +3,16 @@ import {getComments} from '../services'
 import moment from 'moment';
 const Comments = ({slug}) => {
   const [comments , setComments] = useState([]);
-
+  console.log("slug" , slug);
 
   //fetch comments
-  const getData = () => {
+  const getData = (slug) => {
     getComments(slug).then(
-      res => setComments(res)
+      res => console.log("comments:",res)
     )
   }
   useEffect(()=> {
-    getData()
+    getData(slug)
   } , [])
   return ( 
     <div className='bg-white width-full rounded-lg p-4 mb-10'>

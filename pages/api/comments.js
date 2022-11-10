@@ -6,28 +6,21 @@ import {GraphQLClient , gql , request} from 'graphql-request'
 //   name: string
 // }
 export default async function handler(req, res) {
-  const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE2NjQ4NjY3NTEsImF1ZCI6WyJodHRwczovL2FwaS11cy13ZXN0LTIuaHlncmFwaC5jb20vdjIvY2w3a216MmoyMGx6MDAxdXA2OW9jMTN4bC9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC5ncmFwaGNtcy5jb20vIiwic3ViIjoiNWNlNGFhYWQtZGJlYS00YjE4LThhM2MtZDMzYmJkNGM1MDQ1IiwianRpIjoiY2w4dHVvZmM1NHZ5ZDAxdW45ajc3OTF2aSJ9.Lu7JaqVA98jugD6NP66aN7GBNwHFViLdusvfnyRdrkAA5dycc4FP47-hfRfgJBm5_DI4TQWbt0BTjMIDhkg_fMiS2S87GNblEQASfLQVtWHmENdGlJ2YvNNu7A1SHvP_7RtiFHZ4v-3rVMmAQyOw7oftBAm_6Jsni3HX3B-ibEZyIG9F2n1h7F5taWdBRuHQotwS7W6XihxWv7KXA3pbwXLD9Ntxn7PGYV_LT56g-3-E2Ri_hCAr8C-NdTstMtbp-iyoAM_6eVdoTX3kJ5HSHIwahdRDntaTX4IgCMZOfM2KwDrPw0OxuFYwGaoXqWBg6ql1hNxJDLiqza52t0b9Z81EvihqJX7m94ftJUWASd04AqQYYlXhxqALKsxon8J-3Q5rxK9NjVIJ45V3uc6aRxT6UtRITeQC1rS8Qo3_VXCBEWaiLMqMdss2UzqMfL4qCd3BpRJ5-QRQKCl0Cb98ea-uA269U-MnP4u2OB9x-aBX3s_JIfCGkAIqfRloEZ-33qnMoH8zoZghcpQQLBt5TcjznJbBaBMdWqFgMT8NvAZvsOm52wCyQCklo1y8wdTJNhwG0j8PXD7BKrPq3SwZLcULNip18eeuXtO_bavIqEajRCzj5ktMW8ZLc7kVdX5Lv5YdGRgwbzP7tBgIeTOCozfxHyeNnMj68IbKtQENpSU";
+  const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE2NjgwMTQ2NTMsImF1ZCI6WyJodHRwczovL2FwaS11cy13ZXN0LTIuaHlncmFwaC5jb20vdjIvY2w3a216MmoyMGx6MDAxdXA2OW9jMTN4bC9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC5ncmFwaGNtcy5jb20vIiwic3ViIjoiNDMxZDdjYTEtMzNkZi00N2JjLWIxNDItOWJjZWQwNjU4NDlhIiwianRpIjoiY2xhOXd1dzRqMmxrMDAxdW1iaDZkNGtrbSJ9.HXPs-v7YCfqInlB0HF5u90sAol8eYT4M7hhbQMBPugnyIGYJ16DSNTa51wkirvVlNBC6PFCmolFcHD2qqnGmj26xRnIk0vCCsa-SHv0yHRrw2gljw23BqZc6CtEOGm_kuVIt7ibEqoJJztzQhzuNhkziBlPVxwW5J5VzwdogVrCSOuLWKfB9bcZOS0Ts-N8ueKihGTlO9wmglCLZgbY5ZDTFXr-QINChvBrAtg_R0icHeoEtErkc0O7RX_MwqPEPUJeCkVkqzB-5Qhkpp_JZNIqG5XS_1BCaMW4UQPJ7QFIMqendjXHeFg2GkMWDVK1adH0YO2KNTz7WQY0VfMR0TGh72xPyKTUHDExKQYEOm9cmN9-ZB-pj3Dj3Mcbn3uImWb7o0KbcMCCtXgF2Rx26ZQc7tw3IoIYMplY0n_TD5dgaSu_aVwZIOS8G5KE5-0rSeH_fKPgqnX_oDuooP8Aj4oExkdezW3aREhPZXi_JPsx1BTv6N2TAd-QwMpFwLCbVku5tZj_kLGz9ax8z1z0q7RbLEjO3wwDhw6VWggD-9gxVJuhe1WwRWk9s6I1WQ8pyIzqVDZPZgQl64KjVFe2rrDk9_Se-GeQbvAOxYrILpzxQbXTdJYR1ExnhCCcuBT2-Jo_FKh9WXE-IQmVwTtA7XWqQaIk3nK_lATDQ7i0Zgnc";
   const graphQlClient = new GraphQLClient('https://api-us-west-2.hygraph.com/v2/cl7kmz2j20lz001up69oc13xl/master' , 
     {
       headers : {
-        authorization :`Bearer ${token}`
+        Authorization :`Bearer ${token}`
       }
     }
   );
   const query = gql`
     mutation CreateComment($name : String! , $email : String! , $slug : String! , $comment : String!) {
       createComment (data : {name : $name , email : $email , comment : $comment , post :{connect : {slug : $slug}} }
-        ) {id}
+        ) { id }
     }
   `
-  try{
-    const result = await graphQlClient.request(query , req.body)
-    return res.status(200).send(result);
-  } catch(error){
-    console.log(error);
-    return res.status(500).send(error);
-  }
-    
-    
   
+  const result = await graphQlClient.request(query , req.body)
+  return res.status(200).send(result);
 }

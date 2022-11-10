@@ -86,7 +86,6 @@ export const getSimilarPosts = async (slug , categories) => {
         }
     `;
     const result = await graphQLClient.request(query , {slug , categories});
-    console.log(result.posts);
     return result.posts;
 };
 
@@ -154,27 +153,8 @@ export const submitComment = async (obj) => {
       body:JSON.stringify(obj),
     });
   
-    return result;
+    return result.json();
 };
-
-export const getComments = async (slug) => {
-    const graphQLClient = new GraphQLClient(
-        'https://api-us-west-2.hygraph.com/v2/cl7kmz2j20lz001up69oc13xl/master'
-    );
-    const query = gql`
-        query GetComments($slug : String!){
-            comments(where : {post : {slug:$slug}}){
-                name
-                createdAt
-                comment
-            }
-        }
-    
-    `
-    const result = await graphQLClient.request(query , {slug})
-    return result.comments
-};
-
 
 export const getFeaturedPosts = async () => {
     const graphQLClient = new GraphQLClient(
@@ -201,5 +181,55 @@ export const getFeaturedPosts = async () => {
     `
     const result = await graphQLClient.request(query)
     return result.posts
+
+}
+
+
+export const getRelatedPosts = async (name) => {
+    const graphQLClient = new GraphQLClient(
+        'https://api-us-west-2.hygraph.com/v2/cl7kmz2j20lz001up69oc13xl/master'
+    );
+    const query = gql`
+        query GetRelatedPosts($name : String!){
+            posts(where: {categories_some: {name_contains: $name}}) {
+                title
+                slug
+                excerpt
+                featuredImage {
+                    url
+                }
+                author {
+                    bio
+                    name
+                    id
+                    photo {
+                        url
+                    }
+                }
+            }
+        }
+    
+    `
+    const result = await graphQLClient.request(query , {name})
+    return result.posts
+}
+
+export const getComments = async (slug) => {
+    const graphQLClient = new GraphQLClient(
+        'https://api-us-west-2.hygraph.com/v2/cl7kmz2j20lz001up69oc13xl/master'
+    );
+
+    const query = gql`
+        query MyQuery($slug : String!){
+            comments(where: {post: {slug: $slug}}) {
+                comment
+                createdAt
+                name
+            }
+        }
+    
+    `
+    const result = await graphQLClient.request(query , {slug})
+    return result.comments
 
 }

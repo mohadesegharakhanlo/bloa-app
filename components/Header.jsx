@@ -22,7 +22,11 @@ export const Header = () => {
         <div className=' md:float-lest md:content '>
           {
               categories && categories.map((item , index) => (
-                <span key={index} className='text-white float-right mt-3 text-xl mr-4 ml-4 font-semibold ' >{item.name}</span>
+                <Link href={`/category/${item.name}`}>
+                  <span key={index} 
+                  className='text-white float-right mt-3 text-xl mr-4 ml-4 font-semibold cursor-pointer transition transform duration-500 hover:text-cyan-700'
+                  >{item.name}</span>
+                </Link>
               ))
           }
         </div>

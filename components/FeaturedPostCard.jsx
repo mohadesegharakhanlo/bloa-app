@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 
 function FeaturedPostCard({post}) {
-    console.log(post.slug)
+   
   return (
     <Link href={`/post/${post.slug}`}>
       <div className='h-72 relative'>
