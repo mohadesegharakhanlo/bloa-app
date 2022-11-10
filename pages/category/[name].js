@@ -1,12 +1,15 @@
 import React from 'react'
-import {getRelatedPosts , getPosts, getCategoris} from '../../services'
+import RelatedPostCard from '../../components/RelatedPostCard'
+import {getRelatedPosts , getCategoris} from '../../services'
 
 const RelatedPosts = ({data}) => {
    
     return(
         <div className=' text-white text-xl'>{
-          data.map((post) => (
-            <p>{post.title}</p>
+          data.map((post , index) => (
+            <div key={index}>
+              <RelatedPostCard post = {post}/>
+            </div>
           ))
         }</div>
     )

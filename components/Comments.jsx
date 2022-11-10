@@ -8,30 +8,26 @@ const Comments = ({slug}) => {
   //fetch comments
   const getData = (slug) => {
     getComments(slug).then(
-      res => console.log("comments:",res)
+      res => setComments(res)
     )
   }
   useEffect(()=> {
     getData(slug)
   } , [])
   return ( 
-    <div className='bg-white width-full rounded-lg p-4 mb-10'>
+    <div className='bg-white width-full rounded-lg p-4 mb-10' dir='rtl'>
       <div className='border-b pb-3'>
-        <p className='text-lg font-bold'>{comments.length} comments</p>
+        <p className='text-lg font-bold'>نظرات دوستان</p>
       </div>
       <div>
         {
           comments && comments.map((item , index) => (
-            <div key={index} className='text-sm mb-4 mt-4 text-gray-500'>
+            <div key={index} className='mt-5 text-gray-500 mb-5'>
               <p>
-              <span className='text-black font-bold'>{item.name}</span>
-              {' '}
-              on
-              {' '}
-              <span>{moment(item.createdAt).format('MMM DD, YYYY')}</span>
+              <span className='text-black text-lg ml-2'>{item.name}</span>
+              <span className='text-xs'>{moment(item.createdAt).format('MMM DD, YYYY')}</span>
               </p>
-              <p className='text-lg text-gray-500 mt-2'>{item.comment}</p>
-            
+              <p className='text-lg text-black mt-2'>{item.comment}</p>
             </div>
           ))
         }
