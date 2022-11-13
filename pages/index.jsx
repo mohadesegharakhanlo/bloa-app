@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+
 import Head from 'next/head'
 import {getPosts} from '../services/index'
 import PostCard from '../components/PostCard'
@@ -36,12 +36,14 @@ const Home = ({posts}) => {
 }
 
 
+export default Home
+
 export async function getStaticProps() {
   const posts = ( await getPosts() ) || []
 
   return {
-    props :{posts}
+    props :{
+      posts,
+    }
   }
 }
-
-export default Home
