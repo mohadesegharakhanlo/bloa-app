@@ -7,9 +7,12 @@
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
+    "bcryptjs": "^2.4.3",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
     "html-react-parser": "^3.0.4",
+    "iron-session": "^6.3.1",
+    "jsonwebtoken": "^9.0.0",
     "moment": "^2.29.4",
     "next": "latest",
     "react": "18.1.0",
