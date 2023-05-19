@@ -156,6 +156,17 @@ export const submitComment = async (obj) => {
     return result.json();
 };
 
+export const signUp = async (userData) => {
+    const result = await fetch('/api/signup' , {
+        method:'POST',
+        headers:{
+            'Content-Type' : 'application/json',
+        },
+        body:JSON.stringify(userData)
+    })
+    return result.json();
+}
+
 export const getFeaturedPosts = async () => {
     const graphQLClient = new GraphQLClient(
         'https://api-us-west-2.hygraph.com/v2/cl7kmz2j20lz001up69oc13xl/master'
