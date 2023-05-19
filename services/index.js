@@ -158,7 +158,7 @@ export const submitComment = async (obj) => {
 
 export const signUp = async (userData) => {
     console.log("dataaaa" , userData)
-    const result = await fetch('http://localhost:3000/api/auth/signup' , {
+    const result = await fetch('/api/auth/signup' , {
         method:'POST',
         headers:{
             'Content-Type' : 'application/json',

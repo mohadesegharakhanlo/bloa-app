@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@liara/cli": "^3.4.0",
     "@react-icons/all-files": "^4.1.0",
     "axios": "^1.4.0",
     "axois": "^0.0.1-security",
