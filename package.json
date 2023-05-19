@@ -7,6 +7,8 @@
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
+    "axios": "^1.4.0",
+    "axois": "^0.0.1-security",
     "bcryptjs": "^2.4.3",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",

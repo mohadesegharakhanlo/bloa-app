@@ -157,13 +157,15 @@ export const submitComment = async (obj) => {
 };
 
 export const signUp = async (userData) => {
-    const result = await fetch('/api/signup' , {
+    console.log("dataaaa" , userData)
+    const result = await fetch('http://localhost:3000/api/auth/signup' , {
         method:'POST',
         headers:{
             'Content-Type' : 'application/json',
         },
-        body:JSON.stringify(userData)
-    })
+        body:userData
+    });
+    
     return result.json();
 }
 

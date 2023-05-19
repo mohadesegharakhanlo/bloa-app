@@ -1,17 +1,21 @@
 import React from "react";
-import {useForm} from 'react-hook-form'
-import {signUp as signUpService} from '../services/index'
+import { useForm } from "react-hook-form";
+import { signUp as signUpService } from "../services/index";
 
 const signUp = () => {
-  const { register , handleSubmit , formState:{errors}} = useForm()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (data) => {
-    signUpService(data).then((res) => {
-      console.log("response" , res)
-    }).catch(err => {
-      console.log("erre" , err)
-    })
-  }
+    signUpService(JSON.stringify(data)).then(
+      res => console.log("ressssss" , res)
+    ).catch(
+      err => console.log("errrrrrrrr" , err)
+    )
+  };
   return (
     <div className=" flex flex-col pl-[15%]">
       <header className="shadow-lg shadow-gray-400 flex flex-col gap-4 items-end justify-end w-1/2 py-4 px-2 rounded-md">
@@ -22,7 +26,8 @@ const signUp = () => {
         </p>
       </header>
       <div className="  w-1/2">
-        <form className=" flex flex-col gap-6 [&>div]:flex [&>div]:flex-col [&>div]:items-end [&>div]:gap-1 pt-6"
+        <form
+          className=" flex flex-col gap-6 [&>div]:flex [&>div]:flex-col [&>div]:items-end [&>div]:gap-1 pt-6"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div>
@@ -30,9 +35,9 @@ const signUp = () => {
             <input
               className=" h-10 w-[320px] shadow-lg rounded-[5px] bg-neutral-100 text-sm outline-none focus:outline-none px-2"
               style={{ direction: "rtl" }}
-              {...register("firstName" , {
-                required:true,
-                maxLength:15,
+              {...register("firstName", {
+                required: true,
+                maxLength: 15,
               })}
             />
           </div>
@@ -43,9 +48,9 @@ const signUp = () => {
             <input
               className=" h-10 w-[320px] shadow rounded-[5px] bg-neutral-100 text-sm outline-none focus:outline-none px-2"
               style={{ direction: "rtl" }}
-              {...register("lastName" , {
-                required:true,
-                maxLength:25,
+              {...register("lastName", {
+                required: true,
+                maxLength: 25,
               })}
             />
           </div>
@@ -56,26 +61,28 @@ const signUp = () => {
             <input
               className=" h-10 w-[320px] shadow rounded-[5px] bg-neutral-100 text-sm outline-none focus:outline-none px-2"
               style={{ direction: "rtl" }}
-              {...register("email" , {
-                required:true,
+              {...register("email", {
+                required: true,
               })}
             />
           </div>
           <div className=" flex !flex-row-reverse !gap-10">
-            <div className=" flex flex-col gap-1 items-end"> 
+            <div className=" flex flex-col gap-1 items-end">
               <label className=" text-xl text-cyan-800 font-semiBold ">
                 رمز
               </label>
               <input
                 className=" h-10 w-[320px]  shadow rounded-[5px] bg-neutral-100 text-sm outline-none focus:outline-none px-2"
                 style={{ direction: "rtl" }}
-                {...register("password" , {
-                  required:true,
-                  minLength:6
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
                 })}
               />
             </div>
-            <button className=" h-10 w-[300px] text-white bg-cyan-800 font-bold text-xl rounded-[5px] shadow-lg hover:bg-opacity-70">ثبت نام</button>
+            <button className=" h-10 w-[300px] text-white bg-cyan-800 font-bold text-xl rounded-[5px] shadow-lg hover:bg-opacity-70">
+              ثبت نام
+            </button>
           </div>
         </form>
       </div>
