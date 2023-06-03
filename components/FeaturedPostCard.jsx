@@ -17,14 +17,14 @@ function FeaturedPostCard({post}) {
           <div className='absolute w-full bottom-5 flex justify-center gap-2'>
             <Image
               unoptimized
-              alt={post.author.name}
-              src={post.author.photo.url}
+              alt={post?.author?.name}
+              src={post?.author?.photo?.url}
               width="30px"
               height="30px"
               className='rounded-full'
 
             />
-            <p className='text-lg text-white'>{post.author.name}</p>
+            <p className='text-lg text-white'>{post?.author?.name}</p>
           </div>
       </div>
     </Link>

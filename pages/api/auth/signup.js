@@ -1,4 +1,4 @@
-import { gql, GraphQLClient } from "graphql-request";
+import { gql, GraphQLClient, request } from "graphql-request";
 import bcryptjs from "bcryptjs";
 import { Jwt } from "jsonwebtoken";
 
@@ -15,28 +15,25 @@ export default async function handler(req, res) {
   );
 
   const CreateNextUserMutation = gql`
-  mutation CreateNextUsers($firstName:String! , $lastName:String! , $password:String! , email:String!) {
-    createNextUsers(data:{firstName:$firstName , lastName:$lastName , password:$password , email:$email}) {
-      id
+    mutation CreateNextuser(
+      $firstname: String!  
+      $lastname: String!  
+      $password: String!  
+      $email: String!
+    ) {
+      createNextuser(
+        data:{
+          firstname:$firstname  
+          lastname:$lastname  
+          password:$password  
+          email:$email
+        }
+      ) {
+        id
+      }
     }
-  }
 `;
- // const { email, firstName, lastName, password } = req.body;
 
-  if (!email || !password || !lastName || !firstName) {
-    res.status(400).end();
-  }
-
-  // const hashedPassword = await bcryptjs.hash(password, 8);
-  // const userData = {
-  //   email,
-  //   password: hashedPassword,
-  //   firstName,
-  //   lastName,
-  // };
-  const response = await client.request(CreateNextUserMutation, req.body);
-  // if (!response?.CreateNextUser?.id) {
-  //   res.status(500);
-  // }
-  return res.status(200).send(response);
+  const result = await client.request(CreateNextUserMutation, req.body);
+  return res.status(200).send(result);
 }

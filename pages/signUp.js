@@ -10,7 +10,8 @@ const signUp = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    signUpService(JSON.stringify(data)).then(
+    console.log("data" , JSON.stringify(data))
+    signUpService(data).then(
       res => console.log("ressssss" , res)
     ).catch(
       err => console.log("errrrrrrrr" , err)
@@ -35,7 +36,7 @@ const signUp = () => {
             <input
               className=" h-10 w-[320px] shadow-lg rounded-[5px] bg-neutral-100 text-sm outline-none focus:outline-none px-2"
               style={{ direction: "rtl" }}
-              {...register("firstName", {
+              {...register("firstname", {
                 required: true,
                 maxLength: 15,
               })}
@@ -48,7 +49,7 @@ const signUp = () => {
             <input
               className=" h-10 w-[320px] shadow rounded-[5px] bg-neutral-100 text-sm outline-none focus:outline-none px-2"
               style={{ direction: "rtl" }}
-              {...register("lastName", {
+              {...register("lastname", {
                 required: true,
                 maxLength: 25,
               })}

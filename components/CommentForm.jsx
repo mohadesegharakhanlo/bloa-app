@@ -52,7 +52,7 @@ const CommentForm = ({slug}) => {
           setSuccessfulSubmit(true); 
         }
       }
-    )
+    ).catch((err) => console.log("comment error" , err))
   }
 
   useEffect(() => {

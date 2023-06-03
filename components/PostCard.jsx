@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 
 const PostCard = ({post}) => {
+    console.log("testtt" , post);
   return (
     <div className='bg-white rounded-lg p-0 lg:p-8 pb-12 mb-8'>
         <div className='relative overflow-hidden mb-4'>
@@ -16,11 +17,11 @@ const PostCard = ({post}) => {
         </h1>
         <div className='block lg:flex flex-col gap-3 text-center items-center justify-center w-full mb-6'>
             <div className='flex items-center justify-center lg:gap-3 mb-4'>
-                <img src={post.author.photo.url}
+                <img src={post?.author?.photo?.url}
                     height='30px'
                     width='30px'
                 />
-                <p>{post.author.name}</p>
+                <p>{post?.author?.name}</p>
             </div>
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">

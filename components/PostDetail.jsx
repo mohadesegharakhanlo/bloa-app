@@ -54,11 +54,11 @@ const PostDetail = ({post}) => {
         <div className='flex items-center gap-10 text-sm lg:text-lg'>
           <div className='flex gap-2'>
             <img
-              src={post.author.photo.url}
+              src={post?.author?.photo?.url}
               height='30px'
               width='30px'
             />
-            <span>{post.author.name}</span>
+            <span>{post?.author?.name}</span>
           </div>
           <div className='flex'>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
