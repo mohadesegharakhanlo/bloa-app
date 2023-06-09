@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { signUp as signUpService } from "../services/index";
 
@@ -8,11 +8,18 @@ const signUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [text , setText] = useState(0);
 
   const onSubmit = (data) => {
     console.log("data" , JSON.stringify(data))
     signUpService(data).then(
-      res => console.log("ressssss" , res)
+      res => {
+        if(res.status === 200){
+          setText(1)
+        }else{
+          setText(-1)
+        }
+      }
     ).catch(
       err => console.log("errrrrrrrr" , err)
     )
@@ -86,6 +93,11 @@ const signUp = () => {
             </button>
           </div>
         </form>
+      </div>
+      <div>
+        {
+          text === 1 ? (<p className=" text-white text-xl mt-4 ">اطلاعات شما با موفقیت ثبت شد به جمع ما خوش اومدین :)</p>) : (text === -1) ? (<p className=" text-red-600 text-xl mt-4">مشکلی در ثبت اطلاعات شما بوجود امده لطفا دوباره تلاش کنید</p>) : <></>
+        }
       </div>
     </div>
   );

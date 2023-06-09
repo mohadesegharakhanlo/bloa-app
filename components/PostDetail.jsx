@@ -3,6 +3,7 @@ import Image from 'next/image'
 import moment from 'moment/moment'
 
 const PostDetail = ({post}) => {
+  console.log("content" , post.featuredImage)
   //text editor function :)
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
