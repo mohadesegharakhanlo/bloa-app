@@ -7,7 +7,7 @@ const PostCard = ({post}) => {
   return (
     <div className='bg-white rounded-lg p-0 lg:p-8 pb-12 mb-8'>
         <div className='relative overflow-hidden mb-4'>
-            <img src={post.featuredImage.url}
+            <img src={post.featuredImage?.url}
                 className=' w-full h-[35rem] rounded-md'
                 
             />
