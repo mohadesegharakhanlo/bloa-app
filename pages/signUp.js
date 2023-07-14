@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { signUp as signUpService } from "../services/index";
+import { useRouter } from "next/router";
 
 const signUp = () => {
   const {
@@ -9,13 +10,17 @@ const signUp = () => {
     formState: { errors },
   } = useForm();
   const [text , setText] = useState(0);
-
+  const router = useRouter()
+  
   const onSubmit = (data) => {
     console.log("data" , JSON.stringify(data))
     signUpService(data).then(
       res => {
-        if(res.status === 200){
-          setText(1)
+        console.log("sign up data" , res.createNextuser)
+        if(res.createNextuser){
+          localStorage.setItem("userInformation" , JSON.stringify(res.createNextuser))
+          setText(1);
+          router.push({pathname:"/"})
         }else{
           setText(-1)
         }

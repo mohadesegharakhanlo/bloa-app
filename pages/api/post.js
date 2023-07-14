@@ -16,16 +16,14 @@ export default async function handler(req, res) {
         $title: String!
         $slug: String!
         $excerpt: String!
-        $usercontent: String!
-        $featuredImage : AssetCreateOneInlineInput!
+        $content: String!
       ) {
         createPost(
           data: {
             title: $title
             slug: $slug
             excerpt: $excerpt
-            usercontent:$usercontent,
-            featuredImage:$featuredImage,
+            content:$content,
           }
         ) {
           id

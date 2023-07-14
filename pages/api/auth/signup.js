@@ -29,7 +29,10 @@ export default async function handler(req, res) {
           email:$email
         }
       ) {
-        id
+        id,
+        email,
+        firstname,
+        lastname
       }
     }
 `;

@@ -7,6 +7,7 @@ import { GiBookshelf } from "react-icons/gi";
 export const Header = () => {
   const [categories, setCategories] = useState([]);
   const [burgerMenu, setBurgerMenu] = useState(false);
+  const [userInformation, setUserInformation] = useState();
 
   const getData = () => {
     getCategoris().then((res) => setCategories(res));
@@ -17,6 +18,13 @@ export const Header = () => {
   };
   useEffect(() => {
     getData();
+    const getUserInformation = JSON.parse(
+      localStorage.getItem("userInformation")
+    );
+ 
+    if (getUserInformation) {
+      setUserInformation(getUserInformation);
+    }
   }, []);
 
   return (
@@ -32,7 +40,9 @@ export const Header = () => {
               my books
             </span>
           </Link>
-          <div className=" flex gap-4 pt-2 lg:pl-4 pl-2">
+          {
+            userInformation === undefined ? (
+              <div className=" flex gap-4 pt-2 lg:pl-4 pl-2">
             <Link href={"/signIn"}>
               <button className="px-6 md:py-2 lg:h-auto lg:text-base text-sm h-[25px]  bg-cyan-800 text-white font-bold lg:rounded-lg rounded-sm">
                 ورود
@@ -44,6 +54,15 @@ export const Header = () => {
               </button>
             </Link>
           </div>
+            ):(
+              // <p className="pt-2.5 lg:pt-4 lg:pl-4 pl-2 text-cyan-800 text-sm lg:text-base">{userInformation.firstname} {userInformation.lastname}</p>
+              <Link href={"/createPost"}  >
+              <button className="mt-2 lg:ml-4 ml-2 px-6 lg:py-2 lg:h-auto lg:text-base text-sm h-[25px] text-cyan-800 bg-white font-bold lg:rounded-lg rounded-sm">
+                معرفی کتاب
+              </button>
+            </Link>
+            )
+          }
           <span
             className=" text-3xl mr-2 text-cyan-800 md:hidden pt-1 flex-grow flex justify-end"
             onClick={handelBurgerMenu}
@@ -51,7 +70,6 @@ export const Header = () => {
             {burgerMenu ? <AiOutlineMenuFold /> : <AiOutlineMenuUnfold />}
           </span>
         </div>
-
         <div className=" md:float-lest md:content hidden lg:block md:block">
           {categories &&
             categories.map((item, index) => (

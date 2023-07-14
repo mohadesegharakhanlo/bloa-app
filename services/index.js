@@ -167,7 +167,7 @@ export const signUp = async (userData) => {
         body:JSON.stringify(userData)
     });
     
-    return result;
+    return result.json();
 }
 
 export const submitPost = async (data) => {
@@ -178,7 +178,7 @@ export const submitPost = async (data) => {
         },
         body:JSON.stringify(data)
     });
-    return result
+    return result.json()
 }
 
 export const getFeaturedPosts = async () => {
