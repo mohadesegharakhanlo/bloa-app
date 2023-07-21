@@ -77,7 +77,7 @@ const PostDetail = ({post}) => {
         //   const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
         //   return getContentFragment(index, children, typeObj, typeObj.type);
         // })
-        <p className="text-xl font-semibold mb-4">{post?.content}</p>
+        <p className="text-xl mb-4">{post?.content}</p>
       }
     </div>
   )

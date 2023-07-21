@@ -13,7 +13,8 @@ const createPost = () => {
     //   excerpt: "excerpt test",
     //   imageurl: "jfhg",
     // };
-    const info = {...data , slug:data.title}
+    const random = Math.floor(Math.random() * (1000 - 100 + 1))
+    const info = {...data , slug:String(random)}
     submitPost(info)
       .then((res) => {
         if(res.createPost){

@@ -24,6 +24,7 @@ export const getPosts = async () => {
                 featuredImage {
                     url
                 }
+                content
                 imageurl
                 slug
                 title
